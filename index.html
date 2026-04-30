@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A simple, accessible task manager to add, complete, and delete tasks." />
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header">
+        <h1>Task Manager</h1>
+        <p class="tagline">Stay focused. Get things done.</p>
+    </header>
+
+    <main id="main" class="container">
+        <section aria-labelledby="add-task-heading" class="card">
+            <h2 id="add-task-heading" class="visually-hidden">Add a new task</h2>
+            <form id="task-form" class="task-form" autocomplete="off">
+                <label for="task-input" class="visually-hidden">New task</label>
+                <input
+                    type="text"
+                    id="task-input"
+                    name="task"
+                    placeholder="What needs to be done?"
+                    required
+                    maxlength="200"
+                    aria-required="true"
+                />
+                <button type="submit" class="btn btn-primary">Add Task</button>
+            </form>
+        </section>
+
+        <section aria-labelledby="tasks-heading" class="card">
+            <div class="tasks-header">
+                <h2 id="tasks-heading">Your Tasks</h2>
+                <div class="filters" role="group" aria-label="Filter tasks">
+                    <button type="button" class="filter-btn is-active" data-filter="all" aria-pressed="true">All</button>
+                    <button type="button" class="filter-btn" data-filter="active" aria-pressed="false">Active</button>
+                    <button type="button" class="filter-btn" data-filter="completed" aria-pressed="false">Completed</button>
+                </div>
+            </div>
+
+            <ul id="task-list" class="task-list" aria-live="polite" aria-label="Task list"></ul>
+
+            <p id="empty-state" class="empty-state" hidden>No tasks yet. Add one above to get started.</p>
+
+            <footer class="tasks-footer">
+                <span id="task-count" aria-live="polite">0 tasks</span>
+                <button type="button" id="clear-completed" class="btn btn-ghost">Clear completed</button>
+            </footer>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Task Manager</p>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
